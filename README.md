@@ -1,4 +1,4 @@
-# CsDate
+# CsDate ( power by fecha )
 A date class of js, it  inspired C# DateTime. 
 
 ## 中文简介
