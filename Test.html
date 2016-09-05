@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="CsDate.js"></script>
+</head>
+<body>
+    <script type="text/javascript">
+        var date1 = CsDate.createNew(); //当前时间
+        var date2 = CsDate.createNew(new Date());
+        var date3 = CsDate.createNew(date2.getUnixTimestamp()); //Unix Timestamp
+        var date4 = CsDate.createNew(date2.toString("YYYY年MM月DD日 HH时mm分ss秒"), "YYYY年MM月DD日 HH时mm分ss秒");
+        var date5 = CsDate.createNew(date2.year(), date2.month(), date2.day(),
+                        date2.hour(), date2.minute(), date2.second(), 0);
+        var date6 = CsDate.parseByCs('\/Date(' + date3.getUnixTimestamp() + ')\/'); //从 C# 的 DateTime 序列化字符串转换
+        var date7 = date5.copy(); //从当前的对象复制
+
+        console.log("%c=================================", "color: green");
+        console.log(date1.toString());
+        console.log(date2.toString());
+        console.log(date3.toString());
+        console.log(date4.toString());
+        console.log(date5.toString());
+        console.log(date6.toString());
+        console.log(date7.toString());
+
+        console.log("%c=================================", "color: green");
+        console.log(date1.date().toString()); //获取日期部分，时间为 00:00:00
+        console.log(date1.year() + ' ' + date1.month() + ' ' + date1.day() + ' ' + date1.hour() + ' ' + date1.minute() + ' ' + date1.second());
+        console.log(date1.utcYear() + ' ' + date1.utcMonth() + ' ' + date1.utcDay() + ' ' + date1.utcHour() + ' ' + date1.utcMinute() + ' ' + date1.utcSecond());
+
+        console.log("%c=================================", "color: green");
+        console.log(date1.toString("YYYY年MM月DD日 HH时mm分ss秒")); //转为字符串
+        console.log(date1.toUtcString("YYYY年MM月DD日 HH时mm分ss秒")); //转为 UTC 时间字符串
+
+        console.log("%c=================================", "color: green");
+        console.log(date1.isEqual(date2)); //是否等于
+        console.log(date1.isGreater(date2)); //是否大于
+        console.log(date1.isLess(date2)); //是否小于
+        console.log(date1.isGreaterOrEqual(date2)); //是否大于等于
+        console.log(date1.isLessOrEqual(date2)); //是否小于等于
+
+        console.log("%c=================================", "color: green");
+        console.log(date1.getTimestamp());
+        console.log(date1.getUnixTimestamp());
+
+        var t = date1.date().subtract(CsDate.createNew(2016, 9, 1)); //返回 CsTimeSpan
+        console.log("%c=================================", "color: green");
+        console.log(date1.date().toString() + ' - ' + CsDate.createNew(2016, 1, 1));
+        console.log(t.days());
+        console.log(t.hours());
+        console.log(t.minutes());
+        console.log(t.seconds());
+        console.log(t.milliseconds());
+        console.log(t.ticks());
+    </script>
+</body>
+</html>
