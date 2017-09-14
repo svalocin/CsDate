@@ -153,6 +153,7 @@ var CsDate = function () {
       if (format == undefined || format == null || typeof format != "string") {
         format = DefaultDateFormat;
       }
+
       return fecha.format(date, format);
     }
   }, {
@@ -194,27 +195,27 @@ var CsDate = function () {
   }, {
     key: "isEqual",
     value: function isEqual(csDate) {
-      return obj.getUnixTimestamp() == csDate.getUnixTimestamp();
+      return this.getUnixTimestamp() == csDate.getUnixTimestamp();
     }
   }, {
     key: "isGreater",
     value: function isGreater(csDate) {
-      return obj.getUnixTimestamp() > csDate.getUnixTimestamp();
+      return this.getUnixTimestamp() > csDate.getUnixTimestamp();
     }
   }, {
     key: "isLess",
     value: function isLess(csDate) {
-      return obj.getUnixTimestamp() < csDate.getUnixTimestamp();
+      return this.getUnixTimestamp() < csDate.getUnixTimestamp();
     }
   }, {
     key: "isGreaterOrEqual",
     value: function isGreaterOrEqual(csDate) {
-      return obj.getUnixTimestamp() >= csDate.getUnixTimestamp();
+      return this.getUnixTimestamp() >= csDate.getUnixTimestamp();
     }
   }, {
     key: "isLessOrEqual",
     value: function isLessOrEqual(csDate) {
-      return obj.getUnixTimestamp() <= csDate.getUnixTimestamp();
+      return this.getUnixTimestamp() <= csDate.getUnixTimestamp();
     }
   }, {
     key: "getUnixTimestamp",
@@ -228,14 +229,15 @@ var CsDate = function () {
     }
   }, {
     key: "subtract",
-    value: function subtract(csDate) {
-      var n = this.getTimestamp() - csDate.getTimestamp();
+    value: function subtract(date) {
+      if (!(date instanceof CsDate)) date = new CsDate(date);
+      var n = this.getTimestamp() - date.getTimestamp();
       return new CsTimeSpan(n);
     }
   }, {
     key: "copy",
     value: function copy() {
-      return new CsDate(obj.getUnixTimestamp());
+      return new CsDate(this.getUnixTimestamp());
     }
   }]);
 
@@ -274,8 +276,11 @@ var CsTimeSpan = function () {
     value: function milliseconds() {
       return this.timespan / TicksPerMillisecond;
     }
-    //ticks () { return this.timespan; }
-
+  }, {
+    key: "ticks",
+    value: function ticks() {
+      return this.timespan;
+    }
   }, {
     key: "toString",
     value: function toString() {
