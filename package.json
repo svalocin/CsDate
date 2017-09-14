@@ -1,6 +1,6 @@
 {
   "name": "cs-date",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A date class of js, it inspired C# DateTime.",
   "repository": {
     "type": "git",
