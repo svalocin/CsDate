@@ -4,7 +4,7 @@
   "description": "A date class of js, it inspired C# DateTime.",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/tengithub/CsDate.git"
   },
   "keywords": ["date", "js", "C#", "format", "fecha", "CsDate"],
   "scripts": {
