@@ -1,0 +1,25 @@
+{
+  "name": "cs-date",
+  "version": "1.0.0",
+  "description": "A date class of js, it inspired C# DateTime.",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": ["date", "js", "C#", "format", "fecha", "CsDate"],
+  "scripts": {
+    "test": "mocha --compilers js:babel-core/register index.test.js",
+    "build": "babel index.js -o CsDate.js && minify CsDate.js --o CsDate.min.js"
+  },
+  "main": "CsDate.js",
+  "author": "Ten",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-minify": "^0.2.0",
+    "babel-preset-es2015": "^6.24.1",
+    "chai": "^4.1.2",
+    "fecha": "^2.3.1",
+    "mocha": "^3.5.3"
+  }
+}
