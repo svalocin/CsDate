@@ -56,7 +56,7 @@ A date class of js, it inspired C# DateTime, format used [fecha](https://github.
 
 - CsTimeSpan 
 ```
-  var t = CsTimeSpan.createNew(123);
+  var t = new CsTimeSpan(123);
   t.days();
   t.hours();
   t.minutes();
