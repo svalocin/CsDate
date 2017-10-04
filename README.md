@@ -15,7 +15,7 @@ A date class of js, it inspired C# DateTime, format used [fecha](https://github.
   
 - CsDate 的方法
 ```
-  //Default Date Format: YYYY-MM-DD HH:mm:ss
+  // Default Date Format: YYYY-MM-DD HH:mm:ss
   
   date1.date(); // get date, example: 2017/09/14 15:00:00 -> 2017/09/14 00:00:00
   date1.year();
@@ -51,7 +51,7 @@ A date class of js, it inspired C# DateTime, format used [fecha](https://github.
   date1.getTimestamp();
   date1.getUnixTimestamp();
   
-  var t = date1.subtract(date2); //date1 - date2, return CsTimeSpan
+  var t = date1.subtract(date2); // date1 - date2, return CsTimeSpan
 ```
 
 - CsTimeSpan 
